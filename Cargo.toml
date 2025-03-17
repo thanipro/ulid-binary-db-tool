@@ -1,0 +1,20 @@
+ [package]
+ name = "ulid-db-tool"
+ version = "0.1.0"
+ edition = "2021"
+ description = "Command line utility for working with ULIDs in databases"
+ authors = ["Thanipro <work@thani.pro>"]
+ license = "MIT"
+ repository = "https:github.com/thanipro/ulid-db-tool"
+ readme = "README.md"
+ keywords = ["ulid", "database", "mysql", "cli", "binary"]
+ categories = ["command-line-utilities", "database"]
+
+ [dependencies]
+ ulid = { version = "1.1.0", features = ["serde"] }
+ clap = "4.5.0"
+ hex = "0.4.3"
+
+ [[bin]]
+ name = "ulid"
+ path = "src/main.rs"
