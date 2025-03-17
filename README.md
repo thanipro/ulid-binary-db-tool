@@ -33,3 +33,61 @@ cd ulid-db-tool
 
 # Install the tool
 ./install.sh
+```
+
+## Usage
+
+```bash
+# Display help and available commands
+ulid
+
+# Convert between ULID and hex formats
+ulid convert 01J5KERCT1VJCKV1VEVZZ3NFY4
+
+# Generate SQL to find a record by ULID
+ulid find 01J5KERCT1VJCKV1VEVZZ3NFY4 --table users
+
+# Generate SQL and copy to clipboard
+ulid db 01J5KERCT1VJCKV1VEVZZ3NFY4 --table products --column product_id --copy
+```
+
+### Command Reference
+
+#### Convert Command
+
+```bash
+ulid convert <ULID_OR_HEX>
+```
+
+Detects whether the input is a ULID string or hexadecimal value and converts between the formats.
+
+#### Find Command
+
+```bash
+ulid find <ULID> --table <TABLE_NAME> [--column <COLUMN_NAME>]
+```
+
+Generates SQL to find a record by ULID in the specified table.
+
+#### DB Command
+
+```bash
+ulid db <ULID> --table <TABLE_NAME> [--column <COLUMN_NAME>] [--copy]
+```
+
+Generates a SQL query and optionally copies it to the clipboard.
+
+## Building from Source
+
+If you prefer to build the tool manually:
+
+```bash
+# Clone the repository
+git clone https://github.com/thanipro/ulid-db-tool.git
+cd ulid-db-tool
+
+# Build with cargo
+cargo build --release
+
+# The executable will be in target/release/ulid
+```
